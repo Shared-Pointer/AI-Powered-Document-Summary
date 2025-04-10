@@ -1,2 +1,2 @@
-# AI-Powered-Document-Summary
+# KakaSummary AI-Powered-Document-Summary
 Project with Volvo
