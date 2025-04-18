@@ -1,0 +1,7 @@
+streamlit
+dataclasses
+dotenv
+requests
+typing
+azure-ai-textanalytics>=5.3.0
+azure-core>=1.28.0
