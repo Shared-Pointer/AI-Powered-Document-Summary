@@ -26,6 +26,7 @@ A magical AI that turns your boring long documents into... slightly less boring 
 ~~After Azure stops judging your life choices:~~
 1. ~~Go to "Keys and Endpoint" (sounds spy-ish)~~
 2. ~~Create `.env` file in `config/` with:~~
+
 It doesn't work, we used the wrong AI :( and Azure for Students doesn't let us access the OpenAI model.
 
 We can only use a special model to summarize text files, but this Azure service just copies and pastes random sentences from our text. 
