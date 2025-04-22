@@ -1,10 +1,13 @@
 # Main giga kox file
 import streamlit as st
+from tests import test_http
 import time
 from src import FileProcessor, Summarizer
 from config.settings import settings
 
 def main():
+    test_http.test_port()
+
     st.title("Kaka - AI powered document summary")
 
     fileProcessor = FileProcessor()

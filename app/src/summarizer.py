@@ -18,7 +18,7 @@ class Summarizer:
         try:
             actions = [
                 ExtractiveSummaryAction(
-                    max_sentence_count=5,
+                    max_sentence_count=15,
                     order_by="Rank"
                 )
             ]
