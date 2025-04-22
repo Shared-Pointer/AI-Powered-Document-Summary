@@ -2,7 +2,7 @@
 import streamlit as st
 import os
 from typing import Optional
-from tests import test_file_ext
+#from tests import test_file_ext
 
 class FileProcessor:
     def __init__(self):

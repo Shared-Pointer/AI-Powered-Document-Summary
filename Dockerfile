@@ -3,7 +3,6 @@ FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH="${PYTHONPATH}:/app"
-
 WORKDIR /app
 
 COPY requirements.txt .
@@ -21,5 +20,7 @@ COPY . .
 
 EXPOSE 8501
 
-CMD ["pytest", "-v", "app/tests/test_http.py", "app/tests/test_file.py", "app/tests/test_file_ext.py"]
+#RUN "pytest -v app/tests/test_http.py app/tests/test_file.py app/tests/test_file_ext.py" > logs.log
+
+
 CMD ["streamlit", "run", "app/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
