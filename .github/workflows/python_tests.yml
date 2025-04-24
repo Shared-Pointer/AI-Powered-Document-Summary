@@ -14,4 +14,4 @@ jobs:
         run: docker build -f Dockerfile_ci -t ai-summary .
 
       - name: Testing ...
-        run: docker run ai-summary bash -c "PYTHONPATH=/app pytest /app/tests"
+        run: docker run ai-summary bash -c "PYTHONPATH=/app pytest"
