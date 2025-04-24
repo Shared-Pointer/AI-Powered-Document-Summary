@@ -17,4 +17,4 @@ jobs:
         run: docker run -d -p 8501:8501 --name ai-summary ai-summary
 
       - name: Testing ...
-        run: docker exec -it ai-summary bash -c "cd app && pytest"
+        run: docker exec ai-summary bash -c "cd app && pytest"
