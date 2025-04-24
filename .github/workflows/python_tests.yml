@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Builid image
-        run: docker build -t ai-summary .
+        run: docker build -f Dockerfile_ci -t ai-summary .
 
-      - name: Run tests with pytest in container
+      - name: Testing ...
         run: docker run ai-summary "pytest"
