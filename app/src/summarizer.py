@@ -18,7 +18,7 @@ class Summarizer:
                 messages=[
                     {
                         "role": "user",
-                        "content": f"Summarize this text in the same language:\n\n{text}"
+                        "content": f"Summarize this text:\n\n{text}"
                     }
                 ]
             )

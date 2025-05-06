@@ -7,35 +7,25 @@ A magical AI that turns your boring long documents into... slightly less boring 
 
 ---
 
-## ~~🧙‍♂️ Abra-kadabra Setup (Azure Edition)~~
+## 🧞‍♂️ OpenRouter Vibes (Free Magic Edition)
 
-### ~~Numero uno - Azure Voodoo~~
-1. ~~Get your student 🎓 email ready~~
-2. ~~Go to [Azure Portal](https://portal.azure.com) (yes, the cloud place)~~
-3. ~~Type `Language Service` like you're summoning a demon 🔮~~
+### Numero uno - OpenRouter Shenanigans
+1. Create an account at [OpenRouter](https://openrouter.ai/) — yes, it’s real, and no, it's not a Wi-Fi company.
+2. Summon your **API key** from the shadows (or your [dashboard](https://openrouter.ai/account/keys)).
+3. Choose a model — for this silly quest, I picked [**Mistral Small 3.1 24B (free)**](https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct:free) because it sounds fancy.
+4. Pick the **Free plan** — because we’re broke but curious.
+5. Browse other free models if you feel spicy 🌶️ — this one’s just a humble suggestion.
 
-### ~~Numero dos - Resource Goofin'~~
-~~Fill this bad boy like:~~
-- ~~**Subscription**: "Azure for Students" (the free candy 🍭)~~
-- ~~**Resource group**: `AI-Document-Summary` (or whatever)~~
-- ~~**Region**: West Europe 🌍 (or pick your favorite)~~
-- ~~**Name**: `kaka-doc-summary-ai` (mandatory "kaka" prefix)~~
-- ~~**Pricing tier**: F0 (aka "please don't charge me" mode)~~
+### Numero dos - The Sacred `.env` Scrolls 🧻
 
-### ~~Numero tres - Secret Sauce 🕵️~~
-~~After Azure stops judging your life choices:~~
-1. ~~Go to "Keys and Endpoint" (sounds spy-ish)~~
-2. ~~Create `.env` file in `config/` with:~~
+Once you’ve tricked the system into trusting you, create a `.env` file inside `config/` (don’t ask, just do it).
 
-It doesn't work, we used the wrong AI :( and Azure for Students doesn't let us access the OpenAI model.
-
-We can only use a special model to summarize text files, but this Azure service just copies and pastes random sentences from our text.
 ```ini
-AZURE_ENDPOINT='https://kaka-doc-summary-ai.cognitiveservices.azure.com/'
-AZURE_API_KEY='your-magic-code-here'
-API_VERSION='2023-04-01'
-MAX_TOKENS=1000
+API_KEY='your-api-key-here'  # secret sauce
+BASE_URL='https://openrouter.ai/api/v1'  # the mothership
+MODEL='mistralai/mistral-small-3.1-24b-instruct:free'  # free = best flavor
 ```
+
 
 ## 🚀 Launch Protocol (for dummies)
 ### Option A: Docker Magic 🐳
@@ -61,12 +51,3 @@ streamlit run app/main.py       # Do the thing
 - Azure for the free(ish) toys
 - My cat for moral support 🐈
 - Coffee ☕ (the real MVP)
-
-
-# Nowego gowno
-## env file
-```ini
-API_KEY='api'
-BASE_URL='https://openrouter.ai/api/v1'
-MODEL='mistralai/mistral-small-3.1-24b-instruct:free'
-```
