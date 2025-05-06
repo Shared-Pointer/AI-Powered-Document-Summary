@@ -35,7 +35,7 @@ make run    # Unleash the beast
 ```
 Then point browser to http://localhost:8501 and pray 🙏
 
-### Option B: Manual Mode 🤓 (nerd)
+### Option B: Manual Mode 🤓 (nerd) idk if it works
 ```
 pip install -r requirements.txt  # Download internet
 streamlit run app/main.py       # Do the thing
@@ -43,11 +43,12 @@ streamlit run app/main.py       # Do the thing
 
 
 ## ⚠️ Warning Labels
-- Free tier = 5000 requests/month (don't get greedy)
+- Free tier = don't get greedy
 - Might summarize "War and Peace" as "Russia lol" 🇷🇺
 - No refunds if AI calls your doc "trash" 🗑️
 
 ## 🎉 Special Thanks
-- Azure for the free(ish) toys
+~~- Azure for the free(ish) toys~~
+- OpenRouter for the free(ish) toys
 - My cat for moral support 🐈
-- Coffee ☕ (the real MVP)
+- White Monster Energy Drink (the real MVP)
