@@ -3,7 +3,7 @@
 *"Because reading is for nerds, summarizing is for cool kids"* - Sun Tzu probably
 
 ## 🎪 What's this circus about?
-A magical AI that turns your boring long documents into... slightly less boring short documents! Powered by ~~Azure's~~ OpenRouter brain juice and student tears.
+A magical AI that turns your boring long documents into... slightly less boring short documents! Powered by ~~Azure's~~ OpenRouter's brain juice and student tears.
 
 ---
 
