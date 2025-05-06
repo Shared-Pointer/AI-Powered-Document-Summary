@@ -1,46 +1,31 @@
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.textanalytics import (
-    TextAnalyticsClient,
-    ExtractiveSummaryAction
-)
+from openai import OpenAI
 from config.settings import Settings
 
 class Summarizer:
     def __init__(self, config: Settings):
-        self.endpoint = config.AZURE_ENDPOINT
-        self.key = config.AZURE_API_KEY
-        self.client = TextAnalyticsClient(
-            endpoint=self.endpoint,
-            credential=AzureKeyCredential(self.key)
+        self.api_key = config.API_KEY
+        self.base_url = config.BASE_URL
+        self.model = config.MODEL
+        self.client = OpenAI(
+            base_url=self.base_url,
+            api_key=self.api_key,
         )
 
     def summarize(self, text: str) -> str:
         try:
-            actions = [
-                ExtractiveSummaryAction(
-                    max_sentence_count=15,
-                    order_by="Rank"
-                )
-            ]
-
-            poller = self.client.begin_analyze_actions(
-                documents=[text],
-                actions=actions,
-                language="pl",
-                show_stats=True
+            completion = self.client.chat.completions.create(
+                model = self.model,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": f"Summarize this text:\n\n{text}"
+                    }
+                ]
             )
 
-            results = list(poller.result())
+            result = completion.choices[0].message.content
 
-            summary_sentences = []
-            for result in results:
-                for action_result in result:
-                    if not action_result.is_error:
-                        summary_sentences.extend(
-                            sentence.text for sentence in action_result.sentences
-                        )
-
-            return " ".join(summary_sentences) if summary_sentences else "No summary generated"
+            return result
 
         except Exception as e:
             raise Exception(f"Summarization error: {str(e)}")

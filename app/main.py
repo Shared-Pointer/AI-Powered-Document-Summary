@@ -33,7 +33,7 @@ def main():
         summarizzler = Summarizer(settings)
         result = summarizzler.summarize(fileProcessor.get_content())
         with st.spinner("Summarizing your doc...."):
-            time.sleep(5)
+            time.sleep(1)
         st.success("Your summary is ready:")
         st.markdown(result)
 
