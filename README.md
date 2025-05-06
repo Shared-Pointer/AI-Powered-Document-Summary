@@ -29,7 +29,7 @@ A magical AI that turns your boring long documents into... slightly less boring 
 
 It doesn't work, we used the wrong AI :( and Azure for Students doesn't let us access the OpenAI model.
 
-We can only use a special model to summarize text files, but this Azure service just copies and pastes random sentences from our text. 
+We can only use a special model to summarize text files, but this Azure service just copies and pastes random sentences from our text.
 ```ini
 AZURE_ENDPOINT='https://kaka-doc-summary-ai.cognitiveservices.azure.com/'
 AZURE_API_KEY='your-magic-code-here'
@@ -61,3 +61,12 @@ streamlit run app/main.py       # Do the thing
 - Azure for the free(ish) toys
 - My cat for moral support 🐈
 - Coffee ☕ (the real MVP)
+
+
+# Nowego gowno
+## env file
+```ini
+API_KEY='api'
+BASE_URL='https://openrouter.ai/api/v1'
+MODEL='mistralai/mistral-small-3.1-24b-instruct:free'
+```
