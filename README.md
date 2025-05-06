@@ -51,4 +51,4 @@ streamlit run app/main.py       # Do the thing
 ~~- Azure for the free(ish) toys~~
 - OpenRouter for the free(ish) toys
 - My cat for moral support 🐈
-- White Monster Energy Drink (the real MVP)
+- White Monster Energy Drink <img src="https://rudepol.pl/126619-large_default/monster-energy-ultra-white-jednorazowy.jpg" alt="white monster" width="50"/> (powered 99% of this project)
