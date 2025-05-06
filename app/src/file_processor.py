@@ -2,6 +2,7 @@
 import streamlit as st
 import os
 from typing import Optional
+from docx import Document
 #from tests import test_file_ext
 
 class FileProcessor:
@@ -9,7 +10,8 @@ class FileProcessor:
         self.file = None
         self.file_type: None
         self.supported_types = {
-            ".txt": self._read_txt
+            ".txt": self._read_txt,
+            ".docx": self._read_docx
         }
         self.content = None
 
@@ -27,6 +29,14 @@ class FileProcessor:
 
     def _read_txt(self) -> str:
         return self.file.getvalue().decode("utf-8")
+    
+    def  _read_docx(self) -> str:
+        doc = Document(self.file)
+        text = []
+        for para in doc.paragraphs:
+            text.append(para.text)
+        return "\n".join(text)
+
 
     def get_content(self) -> Optional[str]:
         if not self.file:

@@ -5,3 +5,4 @@ requests
 typing
 pytest
 openai
+python-docx
