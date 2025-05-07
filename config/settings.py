@@ -10,3 +10,15 @@ class Settings:
         self.MODEL = os.getenv("MODEL", "")
 
 settings = Settings()
+
+quality = {
+    'excellent':'approximately 2/3 of the original',
+    'good':'approximately 1/2 of the original',
+    'crapy':'approximately 1/3 of the original',
+}
+
+length = {
+    'long':'high coherence, accurate, well-structured',
+    'mid':'average quality, some simplifications allowed',
+    'short':'intentionally lower quality, possibly missing key points or slightly incoherent',
+}
