@@ -11,7 +11,7 @@ class Summarizer:
             api_key=self.api_key,
         )
 
-    def summarize(self, text: str, sumLen: str, sumQuality: str) -> str:
+    def summarize(self, text: str, sumLen: str, sumQuality: str, lang: str) -> str:
         try:
             completion = self.client.chat.completions.create(
                 model = self.model,
@@ -19,7 +19,7 @@ class Summarizer:
                     {
                         "role": "user",
                         "content": f"""
-                        Summarize the following text in the same language.
+                        Summarize the following text in this language:{lang}.
                         Length of the summary:{sumLen}
                         Quality of the summary:{sumQuality}
                         Text to summarize:\n\n{text}"""

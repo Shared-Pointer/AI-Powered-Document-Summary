@@ -22,3 +22,10 @@ length = {
     'mid':'average quality, some simplifications allowed',
     'short':'intentionally lower quality, possibly missing key points or slightly incoherent',
 }
+
+language = {
+    'Polish':'only Polish words',
+    'English':'only English words',
+    'German':'only German words',
+    'French':'only French words',
+}

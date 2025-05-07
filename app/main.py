@@ -1,8 +1,9 @@
 # Main giga kox file
 import streamlit as st
 import time
-from src import FileProcessor, Summarizer
-from config.settings import settings, quality, length
+from src.file_processor import FileProcessor
+from src.summarizer import Summarizer
+from config.settings import settings, quality, length, language
 
 def main():
     if 'tests_run' not in st.session_state:
@@ -33,6 +34,10 @@ def main():
             "intentionally lower quality, possibly missing key points or slightly incoherent"
         ],
     )
+    sumLang = st.radio(
+        "Summary language",
+        ["Polish", "English", "German", "French"],
+    )
 
 
     fileProcessor = FileProcessor()
@@ -50,7 +55,7 @@ def main():
 
     if st.session_state.submitted:
         summarizzler = Summarizer(settings)
-        result = summarizzler.summarize(fileProcessor.get_content(), length[sumLenght], quality[sumQuality])
+        result = summarizzler.summarize(fileProcessor.get_content(), length[sumLenght], quality[sumQuality], language[sumLang])
         with st.spinner("Summarizing your doc...."):
             time.sleep(1)
         st.success("Your summary is ready:")

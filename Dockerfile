@@ -20,7 +20,7 @@ COPY . .
 
 EXPOSE 8501
 
-#RUN "pytest -v app/tests/test_http.py app/tests/test_file.py app/tests/test_file_ext.py" > logs.log
+# RUN "pytest -v app/tests/test_http.py app/tests/test_file.py app/tests/test_file_ext.py" > logs.log
 
 
 CMD ["streamlit", "run", "app/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
