@@ -2,7 +2,7 @@
 import streamlit as st
 import time
 from src import FileProcessor, Summarizer
-from config.settings import settings
+from config.settings import settings, quality, length
 
 def main():
     if 'tests_run' not in st.session_state:
@@ -15,6 +15,25 @@ def main():
         st.session_state.tests_run = True
 
     st.title("Kaka - AI powered document summary")
+    sumLenght = st.radio(
+        "Summary length",
+        ["long", "mid", "short"],
+        captions = [
+            "approximately 2/3 of the original",
+            "approximately 1/2 of the original",
+            "approximately 1/3 of the original"
+        ],
+    )
+    sumQuality = st.radio(
+        "Summary length",
+        ["excellent", "good", "crapy"],
+        captions = [
+            "high coherence, accurate, well-structured",
+            "average quality, some simplifications allowed",
+            "intentionally lower quality, possibly missing key points or slightly incoherent"
+        ],
+    )
+
 
     fileProcessor = FileProcessor()
     fileProcessor.upload_file()
@@ -31,7 +50,7 @@ def main():
 
     if st.session_state.submitted:
         summarizzler = Summarizer(settings)
-        result = summarizzler.summarize(fileProcessor.get_content())
+        result = summarizzler.summarize(fileProcessor.get_content(), length[sumLenght], quality[sumQuality])
         with st.spinner("Summarizing your doc...."):
             time.sleep(1)
         st.success("Your summary is ready:")
