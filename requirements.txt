@@ -6,3 +6,4 @@ typing
 pytest
 openai
 python-docx
+pyMuPDF

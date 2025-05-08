@@ -3,6 +3,7 @@ import streamlit as st
 import os
 from typing import Optional
 from docx import Document
+import fitz
 #from tests import test_file_ext
 
 class FileProcessor:
@@ -11,7 +12,8 @@ class FileProcessor:
         self.file_type: None
         self.supported_types = {
             ".txt": self._read_txt,
-            ".docx": self._read_docx
+            ".docx": self._read_docx,
+            ".pdf": self._read_pdf,
         }
         self.content = None
 
@@ -37,6 +39,13 @@ class FileProcessor:
             text.append(para.text)
         return "\n".join(text)
 
+    def _read_pdf(self) -> str:
+        doc = fitz.open(self.file)
+        text = ""
+        for page in doc:
+            text += page.get_text()
+        return text
+    
 
     def get_content(self) -> Optional[str]:
         if not self.file:

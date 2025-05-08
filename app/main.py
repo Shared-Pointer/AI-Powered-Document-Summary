@@ -61,6 +61,13 @@ def main():
         st.success("Your summary is ready:")
         st.markdown(result)
 
+        st.download_button(
+            label="Download summary",
+            data=result,
+            file_name="summary.txt",
+            mime="text/plain"
+        )
+
 
 if __name__ == "__main__":
     main()

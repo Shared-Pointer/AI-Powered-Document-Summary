@@ -7,7 +7,7 @@ logger = Logger(__name__).get_logger()
 
 @pytest.mark.parametrize("file_name, expected", [
     (".jpeg", False),
-    (".pdf", False),
+    (".pdf", True),
     (".zip", False),
     (".txt", True),
     (".docx", True),
