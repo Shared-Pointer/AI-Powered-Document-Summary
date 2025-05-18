@@ -1,4 +1,3 @@
-# Main giga kox file
 import streamlit as st
 import time
 from src.file_processor import FileProcessor
@@ -10,9 +9,6 @@ def main():
         st.session_state.tests_run = False
 
     if not st.session_state.tests_run:
-        # test_http.test_port()
-        # test_file_ext.test_file_ext("manu.txt")
-        # test_file_ext.test_file_ext("manu.pdf")
         st.session_state.tests_run = True
 
     st.title("Kaka - AI powered document summary")
@@ -49,7 +45,6 @@ def main():
         st.session_state.submitted = False
 
     if file is not None and not st.session_state.submitted:
-        # test_file.test_file_name(file)
         if st.button("Summarize"):
             st.session_state.submitted = True
             st.rerun()
