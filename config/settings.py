@@ -28,4 +28,8 @@ language = {
     'English':'only English words',
     'German':'only German words',
     'French':'only French words',
+    'Japanese':'only Japanese words',
+    'Spanish':'only Spanish words',
+    'Danish':'only Danish words',
+    'Chinese':'only Chinese words',
 }

@@ -26,7 +26,7 @@ def main():
         ],
     )
     sumQuality = st.radio(
-        "Summary length",
+        "Summary quality",
         ["excellent", "good", "crapy"],
         captions = [
             "high coherence, accurate, well-structured",
@@ -34,9 +34,10 @@ def main():
             "intentionally lower quality, possibly missing key points or slightly incoherent"
         ],
     )
-    sumLang = st.radio(
+
+    sumLang = st.selectbox(
         "Summary language",
-        ["Polish", "English", "German", "French"],
+        ["Polish", "English", "German", "French", "Japanese", "Spanish", "Danish", "Chinese"],
     )
 
 
@@ -67,7 +68,6 @@ def main():
             file_name="summary.txt",
             mime="text/plain"
         )
-
 
 if __name__ == "__main__":
     main()
