@@ -1,8 +1,10 @@
+# Support for various file formats
 import streamlit as st
 import os
 from typing import Optional
 from docx import Document
 import fitz
+#from tests import test_file_ext
 
 class FileProcessor:
     def __init__(self):
@@ -29,7 +31,7 @@ class FileProcessor:
 
     def _read_txt(self) -> str:
         return self.file.getvalue().decode("utf-8")
-
+    
     def  _read_docx(self) -> str:
         doc = Document(self.file)
         text = []
@@ -38,12 +40,13 @@ class FileProcessor:
         return "\n".join(text)
 
     def _read_pdf(self) -> str:
-        doc = fitz.open(self.file)
+        self.file.seek(0) 
+        doc = fitz.open(stream=self.file.read(), filetype="pdf")
         text = ""
         for page in doc:
             text += page.get_text()
         return text
-
+    
 
     def get_content(self) -> Optional[str]:
         if not self.file:

@@ -36,6 +36,10 @@ def main():
         ["Polish", "English", "German", "French", "Japanese", "Spanish", "Danish", "Chinese"],
     )
 
+    download_format = st.radio(
+            "Select download format",
+            ["Text File (.txt)", "Word Document (.docx)"]
+        )
 
     fileProcessor = FileProcessor()
     fileProcessor.upload_file()
@@ -57,12 +61,31 @@ def main():
         st.success("Your summary is ready:")
         st.markdown(result)
 
-        st.download_button(
-            label="Download summary",
-            data=result,
-            file_name="summary.txt",
-            mime="text/plain"
-        )
+        if download_format == "Text File (.txt)":
+            st.download_button(
+                label="Download summary",
+                data=result,
+                file_name="summary.txt",
+                mime="text/plain"
+            )
 
+        elif download_format == "Word Document (.docx)":
+            from io import BytesIO
+            from docx import Document
+            
+            doc = Document()
+            doc.add_paragraph(result)
+            buffer = BytesIO()
+            doc.save(buffer)
+            buffer.seek(0)
+            
+            st.download_button(
+                label="Download summary",
+                data=buffer,
+                file_name="summary.docx",
+                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            )
+
+    
 if __name__ == "__main__":
     main()
