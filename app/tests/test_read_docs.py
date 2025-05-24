@@ -7,5 +7,5 @@ def test_read_docx():
     with open("/app/data/input/fanatyk.docx", "rb") as file:
         file_processor.file = file
         file_processor.file_type = ".txt"
-        content = file_processor._read_docx
+        content = file_processor._read_docx()
         assert len(content) > 0, "Your summarize is empty"
